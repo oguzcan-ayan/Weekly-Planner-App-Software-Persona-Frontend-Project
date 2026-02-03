@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "React.js",
+    "day": "Monday",
+    "time": "15:00",
+    "duration": 5,
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "Node.js API",
+    "day": "Monday",
+    "time": "13:00",
+    "duration": 3,
+    "completed": false
+  },
+  {
+    "id": 3,
+    "title": "Spor",
+    "day": "Tuesday",
+    "time": "18:00",
+    "duration": 1,
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "TypeScript Pratik",
+    "day": "Wednesday",
+    "time": "10:00",
+    "duration": 2,
+    "completed": false
+  },
+  {
+    "id": 5,
+    "title": "Proje Geliştir",
+    "day": "Friday",
+    "time": "14:00",
+    "duration": 3,
+    "completed": false
+  },
+  {
+    "id": 1770135764035,
+    "title": "Work C#",
+    "day": "Thursday",
+    "time": "15:25",
+    "duration": 2,
+    "completed": false
+  },
+  {
+    "id": 1770136081932,
+    "title": "Work C++",
+    "day": "Thursday",
+    "time": "09:00",
+    "duration": 1,
+    "completed": false
+  },
+  {
+    "id": 1770136117695,
+    "title": "Work Python",
+    "day": "Thursday",
+    "time": "10:00",
+    "duration": 10,
+    "completed": false
+  }
+]
