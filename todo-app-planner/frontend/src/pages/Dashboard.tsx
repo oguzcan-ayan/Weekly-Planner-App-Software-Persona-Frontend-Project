@@ -6,6 +6,7 @@ import {
   updateTodo,
   deleteTodo
 } from "../services/todoService"
+import { useTheme } from "../contexts/ThemeContext"
 
 import TodoCard from "../components/TodoCard"
 import FilterBar from "../components/FilterBar"
@@ -20,6 +21,7 @@ const Dashboard = () => {
   const [activeDay, setActiveDay] = useState("Monday")
   const [editing, setEditing] = useState<Todo | null>(null)
   const [adding, setAdding] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   const loadTodos = async () => {
     setTodos(await getTodos())
@@ -45,12 +47,17 @@ const Dashboard = () => {
       {/* Header */}
       <div className="dashboard-header">
         <div className="header-left">
-          <h1>My Dashboard</h1>
+          <h1>Weekly Planner App</h1>
           <p>Manage your weekly schedule</p>
         </div>
-        <button className="btn-add" onClick={() => setAdding(true)}>
-          <span>+</span> New Task
-        </button>
+        <div className="header-right">
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+          <button className="btn-add" onClick={() => setAdding(true)}>
+            <span>+</span> New Task
+          </button>
+        </div>
       </div>
 
       {/* Day Tabs */}
