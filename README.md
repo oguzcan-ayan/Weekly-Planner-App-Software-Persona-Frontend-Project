@@ -2,6 +2,8 @@
 # Weekly Planner App
 
 Bu uygulama basit bir Todo uygulaması olmaktan ziyade kullanıcıların haftalık periyotta yaptığı ya da yapacağı işlerini organize etmesini sağlayan UI dostu bir uygulamadır.
+
+
 More than just a simple To-Do App, this is a UI-friendly application that helps users organize the tasks they have done or will do on a weekly basis.
 
 ## Kullanılan Teknolojiler - Used Technologies
