@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
-import { type Todo } from "../interfaces/todo"
+import { useState, useEffect } from "react";
+import { type Todo } from "../interfaces/todo";
 
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 interface Props {
   todo: Todo

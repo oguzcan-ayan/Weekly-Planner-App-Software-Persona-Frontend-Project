@@ -1,6 +1,6 @@
 import { type Todo } from "../interfaces/todo";
 
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 const WeeklyChart = ({ todos } : { todos: Todo[] }) => {
   return (
