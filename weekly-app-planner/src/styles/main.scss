@@ -1,5 +1,5 @@
-@import './reset.css';
-@import './variables.scss';
+@use './reset';
+@use './variables' as *;
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
 
 body {
@@ -197,7 +197,7 @@ body {
 
 .day-tabs {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: var(--gap-2);
   margin-bottom: var(--gap-6);
   border: 3px solid var(--line-sharp);
@@ -1129,34 +1129,99 @@ body {
 }
 
 @media (max-width: $mobile) {
+
+  .day-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: var(--gap-2);
+    padding: var(--gap-2);
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      width: 8px;
+      height: 8px;
+      border-width: 2px;
+    }
+  }
+
+  .day-tab {
+    min-width: 90px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: var(--gap-3);
+    font-size: var(--size-xs);
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .bar {
+    grid-template-columns: 1fr;
+    gap: var(--gap-2);
+    padding-left: 10px;
+
+    &::before {
+      height: 100%;
+      top: 0;
+      transform: none;
+    }
+  }
+
+  .bar-label,
+  .bar-value {
+    text-align: left;
+    font-size: var(--size-xs);
+  }
+
+  .bar-track {
+    height: 18px;
+  }
+
+  .bar-fill.total::after {
+    font-size: 10px;
+    right: 2px;
+    padding: 0 2px;
+  }
+
   .dashboard-header {
     grid-template-columns: 1fr;
     gap: var(--gap-3);
   }
-  
+
   .header-right {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .controls-row {
     gap: var(--gap-2);
-    
+
     .stats-pill {
       flex: 1;
       min-width: 0;
     }
-    
+
     .btn-add {
       width: 100%;
       justify-content: center;
     }
   }
-  
+
   .card {
     grid-template-columns: auto 1fr;
     padding: var(--gap-3) var(--gap-4);
-    
+
     .actions {
       opacity: 1;
       transform: none;
@@ -1164,30 +1229,21 @@ body {
       justify-content: flex-end;
     }
   }
-  
+
   .modal-backdrop {
     align-items: flex-end;
     padding: 0;
   }
-  
+
   .modal {
     max-height: 85vh;
     border-width: 4px 0 0 0;
   }
-  
-  .bar {
-    grid-template-columns: 70px 1fr 90px;
-    
-    .bar-label,
-    .bar-value {
-      font-size: var(--size-xs);
-    }
-  }
-  
+
   .chart-capacity-legend {
     grid-template-columns: 1fr;
   }
-  
+
   .capacity-item {
     font-size: 10px;
   }
