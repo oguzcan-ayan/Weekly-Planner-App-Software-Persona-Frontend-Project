@@ -1,0 +1,42 @@
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+
+type Theme = "light" | "dark";
+
+interface ThemeContextType {
+  theme: Theme
+  toggleTheme: () => void
+}
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const [theme, setTheme] = useState<Theme>(() => {
+    // Read from localStorage when dark or light, the default value is dark
+    const stored = localStorage.getItem("todo-app-theme");
+    return (stored === "light" || stored === "dark") ? stored : "dark";
+  })
+
+  useEffect(() => {
+
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("todo-app-theme", theme);
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === "dark" ? "light" : "dark");
+  }
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  )
+}
+
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within ThemeProvider");
+  }
+  return context;
+}

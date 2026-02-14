@@ -1,0 +1,149 @@
+:root {
+  /* Dark Theme - Midnight Canvas */
+  --bg-canvas:       #0d0d12;
+  --bg-layer-1:      #18181f;
+  --bg-layer-2:      #222229;
+  --bg-layer-3:      #2d2d36;
+  --bg-interactive:  #38383f;
+  
+  --text-stark:      #ffffff;
+  --text-base:       #e4e4e9;
+  --text-soft:       #9999a8;
+  --text-ghost:      #5a5a6b;
+  
+  --line-sharp:      #32323c;
+  --line-bold:       #47475a;
+  --line-electric:   #5d5d7a;
+  
+  /* Electric Accents - High Voltage */
+  --electric-cyan:     #00ffff;
+  --electric-cyan-dim: rgba(0, 255, 255, 0.15);
+  --electric-cyan-glow:rgba(0, 255, 255, 0.35);
+  
+  --electric-lime:     #ccff00;
+  --electric-lime-dim: rgba(204, 255, 0, 0.15);
+  
+  --neon-pink:         #ff10f0;
+  --neon-pink-dim:     rgba(255, 16, 240, 0.15);
+  --neon-pink-glow:    rgba(255, 16, 240, 0.4);
+  
+  --hazard-yellow:     #ffff00;
+  --hazard-yellow-dim: rgba(255, 255, 0, 0.15);
+  
+  --plasma-purple:     #8b5cf6;
+  --plasma-purple-dim: rgba(139, 92, 246, 0.15);
+  
+  --alert-red:         #ff3366;
+  --alert-red-dim:     rgba(255, 51, 102, 0.15);
+  --alert-red-glow:    rgba(255, 51, 102, 0.4);
+  
+  --success-green:     #00ff88;
+  --success-green-dim: rgba(0, 255, 136, 0.15);
+  --success-green-glow:rgba(0, 255, 136, 0.35);
+  
+  /* Brutal Shadows */
+  --shadow-brutal-sm:  4px 4px 0 rgba(0, 0, 0, 0.5);
+  --shadow-brutal-md:  6px 6px 0 rgba(0, 0, 0, 0.5);
+  --shadow-brutal-lg:  8px 8px 0 rgba(0, 0, 0, 0.5);
+  --shadow-brutal-xl:  12px 12px 0 rgba(0, 0, 0, 0.5);
+  
+  --shadow-neon-cyan:  0 0 20px var(--electric-cyan-glow), 0 0 40px rgba(0, 255, 255, 0.2);
+  --shadow-neon-pink:  0 0 20px var(--neon-pink-glow), 0 0 40px rgba(255, 16, 240, 0.2);
+  --shadow-neon-green: 0 0 20px var(--success-green-glow), 0 0 40px rgba(0, 255, 136, 0.2);
+  
+  /* Hard Edges - No Curves */
+  --corner-none:   0;
+  --corner-tiny:   2px;
+  --corner-small:  4px;
+  --corner-med:    6px;
+  --corner-large:  8px;
+  
+  /* Spacing Grid - 4px base */
+  --gap-1:  4px;
+  --gap-2:  8px;
+  --gap-3:  12px;
+  --gap-4:  16px;
+  --gap-5:  20px;
+  --gap-6:  24px;
+  --gap-8:  32px;
+  --gap-10: 40px;
+  --gap-12: 48px;
+  --gap-16: 64px;
+  
+  /* Snappy Transitions */
+  --snap-instant: 80ms ease-out;
+  --snap-quick:   150ms ease-out;
+  --snap-normal:  250ms ease-out;
+  --snap-smooth:  350ms cubic-bezier(0.22, 0.68, 0, 1.2);
+  
+  /* Typography - Industrial Strength */
+  --type-display: 'Space Grotesk', 'Arial Black', sans-serif;
+  --type-heading: 'JetBrains Mono', 'Courier New', monospace;
+  --type-body:    'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+  --type-code:    'Fira Code', 'Courier New', monospace;
+  
+  --size-xs:  11px;
+  --size-sm:  13px;
+  --size-md:  15px;
+  --size-lg:  17px;
+  --size-xl:  20px;
+  --size-2xl: 28px;
+  --size-3xl: 36px;
+  --size-4xl: 48px;
+  
+  --leading-tight:  1.2;
+  --leading-normal: 1.5;
+  --leading-loose:  1.8;
+  
+  /* Layout Layers */
+  --layer-base:     0;
+  --layer-elevated: 10;
+  --layer-floating: 50;
+  --layer-modal:    100;
+  --layer-alert:    200;
+}
+
+/* Light Theme - Stark Contrast */
+[data-theme="light"] {
+  --bg-canvas:       #f5f5f5;
+  --bg-layer-1:      #ffffff;
+  --bg-layer-2:      #fafafa;
+  --bg-layer-3:      #eeeeee;
+  --bg-interactive:  #e0e0e0;
+  
+  --text-stark:      #000000;
+  --text-base:       #1a1a1a;
+  --text-soft:       #666666;
+  --text-ghost:      #999999;
+  
+  --line-sharp:      #d0d0d0;
+  --line-bold:       #b0b0b0;
+  --line-electric:   #8a8a8a;
+  
+  --electric-cyan:     #00cccc;
+  --electric-cyan-dim: rgba(0, 204, 204, 0.1);
+  --electric-cyan-glow:rgba(0, 204, 204, 0.25);
+  
+  --neon-pink:         #ff0099;
+  --neon-pink-dim:     rgba(255, 0, 153, 0.1);
+  --neon-pink-glow:    rgba(255, 0, 153, 0.3);
+  
+  --success-green:     #00cc66;
+  --success-green-dim: rgba(0, 204, 102, 0.1);
+  --success-green-glow:rgba(0, 204, 102, 0.25);
+  
+  --alert-red:         #ff0033;
+  --alert-red-dim:     rgba(255, 0, 51, 0.1);
+  --alert-red-glow:    rgba(255, 0, 51, 0.3);
+  
+  --shadow-brutal-sm:  3px 3px 0 rgba(0, 0, 0, 0.15);
+  --shadow-brutal-md:  4px 4px 0 rgba(0, 0, 0, 0.15);
+  --shadow-brutal-lg:  6px 6px 0 rgba(0, 0, 0, 0.15);
+  --shadow-brutal-xl:  8px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Breakpoints */
+$mobile:  480px;
+$tablet:  768px;
+$desktop: 1024px;
+$wide:    1280px;
