@@ -12,7 +12,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     // Read from localStorage when dark or light, the default value is dark
-    const stored = localStorage.getItem("todo-app-theme");
+    const stored = localStorage.getItem("planner-app-theme");
     return (stored === "light" || stored === "dark") ? stored : "dark";
   })
 
