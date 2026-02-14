@@ -19,7 +19,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
 
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("todo-app-theme", theme);
+    localStorage.setItem("planner-app-theme", theme);
   }, [theme])
 
   const toggleTheme = () => {
