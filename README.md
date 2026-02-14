@@ -18,14 +18,8 @@ More than just a simple To-Do App, this is a UI-friendly application that helps 
 
 [vite@](https://vite.dev/)
 
-[cors@2.8.6](https://www.npmjs.com/package/cors)
 
-[express@5.2.1](https://expressjs.com/)
-
-[node@22.12.0](https://nodejs.org/en)
+Projeyi canlı olarak görmek istiyorsanız, [Projeye Git](https://weekly-planner-app.vercel.app/)
 
 
-Projeyi canlı olarak görmek istiyorsanız, [Projeye Git]()
-
-
-If you want to see the project, [Go Live]()
+If you want to see the project, [Go Live](https://weekly-planner-app.vercel.app/)
