@@ -6,26 +6,26 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 interface Props {
   todo: Todo
   onClose: () => void
-  onSave: (todo: Todo) => void
+  onSave: (todo: Todo) => Promise<void> | void
 }
 
-const EditTodoModal = ({ todo, onClose, onSave } : Props) => {
+const EditTodoModal = ({ todo, onClose, onSave }: Props) => {
   const [form, setForm] = useState(todo);
+  
+  const [durationInput, setDurationInput] = useState(String(todo.duration));
 
-  // Handle ESC key to close
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape"){
-        onClose();
-      }
+      if (e.key === "Escape") onClose()
     }
     window.addEventListener("keydown", handleEscape)
     return () => window.removeEventListener("keydown", handleEscape)
   }, [onClose])
 
-  const handleSave = () => {
-    if (!form.title.trim()) 
-      return onSave(form);
+  const handleSave = async () => {
+    if (!form.title.trim()) return
+    const duration = Math.max(0.5, parseFloat(durationInput) || 0.5);
+    await onSave({ ...form, duration });
   }
 
   return (
@@ -70,10 +70,9 @@ const EditTodoModal = ({ todo, onClose, onSave } : Props) => {
             min={0.5}
             step={0.5}
             max={24}
-            value={form.duration}
-            onChange={e =>
-              setForm({ ...form, duration: Number(e.target.value) })
-            }
+            value={durationInput}
+            onChange={e => setDurationInput(e.target.value)}
+            placeholder="1"
           />
         </div>
 

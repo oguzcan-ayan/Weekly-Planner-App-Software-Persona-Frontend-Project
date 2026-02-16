@@ -6,10 +6,10 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 interface Props {
   defaultDay: string
   onClose: () => void
-  onSave: (todo: Omit<Todo, "id">) => void
+  onSave: (todo: Omit<Todo, "id">) => Promise<void> | void
 }
 
-const AddTodoModal = ({ defaultDay, onClose, onSave } : Props) => {
+const AddTodoModal = ({ defaultDay, onClose, onSave }: Props) => {
   const [form, setForm] = useState<Omit<Todo, "id">>({
     title: "",
     day: defaultDay,
@@ -17,21 +17,24 @@ const AddTodoModal = ({ defaultDay, onClose, onSave } : Props) => {
     duration: 1,
     completed: false
   })
+  
+  // Local string state for duration input
+  const [durationInput, setDurationInput] = useState("1");
 
   // Handle ESC key to close
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
+      if (e.key === "Escape") onClose()
     }
     window.addEventListener("keydown", handleEscape)
     return () => window.removeEventListener("keydown", handleEscape)
   }, [onClose])
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!form.title.trim()) return
-    onSave(form);
+    // Convert duration string to number before saving
+    const duration = Math.max(0.5, parseFloat(durationInput) || 0.5);
+    await onSave({ ...form, duration });
   }
 
   return (
@@ -77,10 +80,9 @@ const AddTodoModal = ({ defaultDay, onClose, onSave } : Props) => {
             min={0.5}
             step={0.5}
             max={24}
-            value={form.duration}
-            onChange={e =>
-              setForm({ ...form, duration: Number(e.target.value) })
-            }
+            value={durationInput}
+            onChange={e => setDurationInput(e.target.value)}
+            placeholder="1"
           />
         </div>
 
